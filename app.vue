@@ -17,7 +17,10 @@
 	</div>
 </template>
 <script setup lang="ts">
-const activeTimeframe = ref<'day' | 'week' | 'month'>('day');
+import { storeToRefs } from 'pinia';
+import { useTimeframe } from './store/timeframe';
+const store = useTimeframe();
+const { activeTimeframe } = storeToRefs(store);
 </script>
 <script lang="ts">
 const data = [
