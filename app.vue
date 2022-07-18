@@ -9,8 +9,10 @@
 					v-for="item in data"
 					:title="item.title"
 					:timeframe="activeTimeframe"
+					:icon="item.icon"
 					:current="item.timeframes[activeTimeframe].current"
 					:previous="item.timeframes[activeTimeframe].previous"
+					:color="item.color"
 				/>
 			</div>
 		</div>
@@ -26,6 +28,8 @@ const { activeTimeframe } = storeToRefs(store);
 const data = [
 	{
 		title: 'Work',
+		icon: 'ic:baseline-work-history',
+		color: 'bg-red-500',
 		timeframes: {
 			day: {
 				current: 5,
@@ -43,6 +47,8 @@ const data = [
 	},
 	{
 		title: 'Play',
+		icon: 'icon-park-solid:game-handle',
+		color: 'bg-green-400',
 		timeframes: {
 			day: {
 				current: 1,
@@ -60,6 +66,8 @@ const data = [
 	},
 	{
 		title: 'Study',
+		icon: 'el:book',
+		color: 'bg-sky-400',
 		timeframes: {
 			day: {
 				current: 0,
@@ -77,6 +85,8 @@ const data = [
 	},
 	{
 		title: 'Exercise',
+		icon: 'ic:outline-directions-run',
+		color: 'bg-yellow-400',
 		timeframes: {
 			day: {
 				current: 1,
@@ -94,6 +104,8 @@ const data = [
 	},
 	{
 		title: 'Social',
+		icon: 'ant-design:message-filled',
+		color: 'bg-violet-400',
 		timeframes: {
 			day: {
 				current: 1,
@@ -111,6 +123,8 @@ const data = [
 	},
 	{
 		title: 'Self Care',
+		icon: 'fa-solid:hand-holding-medical',
+		color: 'bg-rose-400',
 		timeframes: {
 			day: {
 				current: 0,

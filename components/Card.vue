@@ -1,6 +1,8 @@
 <template>
-	<div class="bg-red-500 rounded-xl w-full">
-		<div class="h-12">svgs</div>
+	<div class="rounded-xl w-full" :class="color">
+		<div class="h-12 text-gray-600 opacity-50 flex justify-end pr-4">
+			<Icon :icon="icon" width="50" height="50" class="rotate-45" />
+		</div>
 		<div class="p-6 bg-indigo-900 rounded-xl flex flex-col">
 			<div class="flex justify-between items-center">
 				<h4 class="capitalize text-white text-2xl">{{ title }}</h4>
@@ -19,11 +21,14 @@
 </template>
 
 <script setup lang="ts">
+import { Icon } from '@iconify/vue';
 const props = defineProps<{
 	title: string;
 	timeframe: 'day' | 'week' | 'month';
+	icon: string;
 	current: number;
 	previous: number;
+	color: string;
 }>();
 // const { title, timeframe, current, previous } = toRefs(props);
 </script>

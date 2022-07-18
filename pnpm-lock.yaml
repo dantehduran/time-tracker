@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@iconify/vue': ^3.2.1
   '@pinia/nuxt': ^0.3.0
   autoprefixer: ^10.4.7
   nuxt: 3.0.0-rc.5
@@ -8,17 +9,20 @@ specifiers:
   pinia-plugin-persistedstate: ^1.6.3
   postcss: ^8.4.14
   tailwindcss: ^3.1.6
+  vue: '>=3.2.0 <4.0.0'
 
 dependencies:
-  '@pinia/nuxt': 0.3.0
-  pinia: 2.0.16
+  '@pinia/nuxt': 0.3.0_vue@3.2.37
+  pinia: 2.0.16_vue@3.2.37
   pinia-plugin-persistedstate: 1.6.3_pinia@2.0.16
 
 devDependencies:
+  '@iconify/vue': 3.2.1_vue@3.2.37
   autoprefixer: 10.4.7_postcss@8.4.14
   nuxt: 3.0.0-rc.5
   postcss: 8.4.14
   tailwindcss: 3.1.6
+  vue: 3.2.37
 
 packages:
 
@@ -302,6 +306,14 @@ packages:
     resolution: {integrity: sha512-MVbXLbTcAotOPUj0pAMhVtJ+3/kFkwJqc5qNOleOZTv6QkZZABDMS21dSrSlVswEHwrpWC03e4fWytjqKvuE2A==}
     dependencies:
       mime: 3.0.0
+    dev: true
+
+  /@iconify/vue/3.2.1_vue@3.2.37:
+    resolution: {integrity: sha512-c4R6ZgFo1JrJ8aPMMgOPgfU7lBswihMGR+yWe/P4ZukC3kTkeT4+lkt9Pc/itVFMkwva/S/7u9YofmYv57fnNQ==}
+    peerDependencies:
+      vue: 3.x
+    dependencies:
+      vue: 3.2.37
     dev: true
 
   /@ioredis/commands/1.2.0:
@@ -606,11 +618,11 @@ packages:
       - webpack
     dev: true
 
-  /@pinia/nuxt/0.3.0:
+  /@pinia/nuxt/0.3.0_vue@3.2.37:
     resolution: {integrity: sha512-x/T8GAfpLAF/a5I06frgl7Aj+X9Ld3fvBhQ6xtinHsXivbrUSL1UNJof8JKEAZBwKX33CoCyeGWbXfOtpyODug==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.5
-      pinia: 2.0.16
+      pinia: 2.0.16_vue@3.2.37
     transitivePeerDependencies:
       - '@vue/composition-api'
       - esbuild
@@ -3180,10 +3192,10 @@ packages:
     peerDependencies:
       pinia: ^2.0.0
     dependencies:
-      pinia: 2.0.16
+      pinia: 2.0.16_vue@3.2.37
     dev: false
 
-  /pinia/2.0.16:
+  /pinia/2.0.16_vue@3.2.37:
     resolution: {integrity: sha512-9/LMVO+/epny1NBfC77vnps4g3JRezxhhoF1xLUk8mZkUIxVnwfEAIRiAX8mYBTD/KCwZqnDMqXc8w3eU0FQGg==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
@@ -3196,7 +3208,8 @@ packages:
         optional: true
     dependencies:
       '@vue/devtools-api': 6.2.1
-      vue-demi: 0.13.5
+      vue: 3.2.37
+      vue-demi: 0.13.5_vue@3.2.37
     dev: false
 
   /pkg-types/0.3.3:
@@ -4608,7 +4621,7 @@ packages:
       bundle-runner: 0.0.1
     dev: true
 
-  /vue-demi/0.13.5:
+  /vue-demi/0.13.5_vue@3.2.37:
     resolution: {integrity: sha512-tO3K2bML3AwiHmVHeKCq6HLef2st4zBXIV5aEkoJl6HZ+gJWxWv2O8wLH8qrA3SX3lDoTDHNghLX1xZg83MXvw==}
     engines: {node: '>=12'}
     hasBin: true
@@ -4619,6 +4632,8 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
+    dependencies:
+      vue: 3.2.37
     dev: false
 
   /vue-router/4.1.2_vue@3.2.37:
