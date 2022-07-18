@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-red-500 rounded-xl">
+	<div class="bg-red-500 rounded-xl w-full">
 		<div class="h-12">svgs</div>
 		<div class="p-6 bg-indigo-900 rounded-xl flex flex-col">
 			<div class="flex justify-between items-center">
