@@ -3,7 +3,7 @@
 		<div
 			class="flex gap-8 min-h-screen justify-center items-center container mx-auto"
 		>
-			<div class="basis-1/4"><Profile /></div>
+			<div class="basis-1/4 md:h-[512px]"><Profile /></div>
 			<div class="basis-3/4 grid grid-cols-1 md:grid-cols-3 gap-8">
 				<Card
 					v-for="item in data"
