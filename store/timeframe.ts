@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
+export type timeframe = 'day' | 'week' | 'month';
 interface timeframeStore {
-	activeTimeframe: 'day' | 'week' | 'month';
+	activeTimeframe: timeframe;
 }
 // const timeframes = [
 // 	{
@@ -108,6 +109,12 @@ interface timeframeStore {
 // ];
 export const useTimeframe = defineStore('timeframe', {
 	state: (): timeframeStore => ({
-		activeTimeframe: 'day',
+		activeTimeframe: 'week',
 	}),
+	actions: {
+		changeTimeframe(newTimeframe: timeframe) {
+			this.activeTimeframe = newTimeframe;
+		},
+	},
+	persist: true,
 });

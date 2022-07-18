@@ -5,12 +5,14 @@ specifiers:
   autoprefixer: ^10.4.7
   nuxt: 3.0.0-rc.5
   pinia: ^2.0.16
+  pinia-plugin-persistedstate: ^1.6.3
   postcss: ^8.4.14
   tailwindcss: ^3.1.6
 
 dependencies:
   '@pinia/nuxt': 0.3.0
   pinia: 2.0.16
+  pinia-plugin-persistedstate: 1.6.3_pinia@2.0.16
 
 devDependencies:
   autoprefixer: 10.4.7_postcss@8.4.14
@@ -3172,6 +3174,14 @@ packages:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /pinia-plugin-persistedstate/1.6.3_pinia@2.0.16:
+    resolution: {integrity: sha512-vwxUca3DZKW6+wnGsgu6hA0ESVKoLovF8vH1jMOPBhaH4VpCSTgn5AsprTxXyg3uMk047m0B+NggeMTcCC8H6w==}
+    peerDependencies:
+      pinia: ^2.0.0
+    dependencies:
+      pinia: 2.0.16
+    dev: false
 
   /pinia/2.0.16:
     resolution: {integrity: sha512-9/LMVO+/epny1NBfC77vnps4g3JRezxhhoF1xLUk8mZkUIxVnwfEAIRiAX8mYBTD/KCwZqnDMqXc8w3eU0FQGg==}

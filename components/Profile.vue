@@ -15,17 +15,35 @@
 		</div>
 		<div class="p-6 flex md:flex-col flex-row gap-4 justify-center">
 			<span
-				class="text-white hover:text-white cursor-pointer text-lg font-semibold"
-				>Daily</span
+				@click="changeTimeframe('day')"
+				class="hover:text-white cursor-pointer text-lg font-semibold"
+				:class="
+					store.activeTimeframe == 'day' ? 'text-white' : 'text-indigo-600'
+				"
 			>
+				Daily
+			</span>
 			<span
-				class="text-indigo-600 hover:text-white cursor-pointer text-lg font-semibold"
+				@click="changeTimeframe('week')"
+				class="hover:text-white cursor-pointer text-lg font-semibold"
+				:class="
+					store.activeTimeframe == 'week' ? 'text-white' : 'text-indigo-600'
+				"
 				>Weekly</span
 			>
 			<span
-				class="text-indigo-600 hover:text-white cursor-pointer text-lg font-semibold"
+				@click="changeTimeframe('month')"
+				class="hover:text-white cursor-pointer text-lg font-semibold"
+				:class="
+					store.activeTimeframe == 'month' ? 'text-white' : 'text-indigo-600'
+				"
 				>Monthly</span
 			>
 		</div>
 	</div>
 </template>
+<script setup lang="ts">
+import { useTimeframe } from '~~/store/timeframe';
+const store = useTimeframe();
+const { changeTimeframe } = store;
+</script>
