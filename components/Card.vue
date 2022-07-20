@@ -12,10 +12,10 @@
 			</div>
 			<div class="mt-6 mb-2">
 				<h3 class="text-white text-5xl tracking-wide mb-2">
-					{{ `${current}hrs` }}
+					{{ `${store[title][timeframe][0]}hrs` }}
 				</h3>
 				<span class="text-white font-thin">{{
-					`last ${timeframe} - ${previous}hrs `
+					`last ${timeframe} - ${store[title][timeframe][1]}hrs `
 				}}</span>
 			</div>
 		</div>
@@ -24,13 +24,14 @@
 
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
+import { storeToRefs } from 'pinia';
+import { useTimeframe } from '../store/timeframe';
+const store = useTimeframe();
+
 const props = defineProps<{
 	title: string;
 	timeframe: 'day' | 'week' | 'month';
 	icon: string;
-	current: number;
-	previous: number;
 	color: string;
 }>();
-// const { title, timeframe, current, previous } = toRefs(props);
 </script>
