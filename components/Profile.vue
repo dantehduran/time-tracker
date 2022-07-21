@@ -43,7 +43,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { useTimeframe } from '~~/store/timeframe';
+import { useTimeframe } from '~~/store/timeframeStore';
 const store = useTimeframe();
 const { changeTimeframe } = store;
 </script>

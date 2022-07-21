@@ -12,11 +12,11 @@
 			</div>
 			<div class="mt-6 mb-2">
 				<h3 class="text-white text-5xl tracking-wide mb-2">
-					{{ `${store[title][timeframe][0]}hrs` }}
+					<!-- {{ `${getHours('work')[0]}}hrs` }} -->
 				</h3>
-				<span class="text-white font-thin">{{
+				<!-- <span class="text-white font-thin">{{
 					`last ${timeframe} - ${store[title][timeframe][1]}hrs `
-				}}</span>
+				}}</span> -->
 			</div>
 		</div>
 	</div>
@@ -24,14 +24,13 @@
 
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
-import { storeToRefs } from 'pinia';
-import { useTimeframe } from '../store/timeframe';
+import { useTimeframe } from '../store/timeframeStore';
 const store = useTimeframe();
-
 const props = defineProps<{
 	title: string;
 	timeframe: 'day' | 'week' | 'month';
 	icon: string;
 	color: string;
 }>();
+const getHours = store[props.timeframe] as (string: any) => [number, number];
 </script>

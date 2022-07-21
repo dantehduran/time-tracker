@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { useTimeframe } from './store/timeframe';
+import { useTimeframe } from './store/timeframeStore';
 const store = useTimeframe();
 const { activeTimeframe } = storeToRefs(store);
 </script>
