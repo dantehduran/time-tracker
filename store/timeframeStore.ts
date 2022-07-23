@@ -120,7 +120,24 @@ export const useTimeframe = defineStore('timeframe', {
 				return hours;
 			};
 		},
-		month: (state) => {},
+		month: (state) => {
+			const thismonth = new Date(new Date().toDateString());
+			const pastmonth = new Date(thismonth);
+			pastmonth.setMonth(thismonth.getMonth() - 1);
+			return (activity: string) => {
+				let hours: [number, number] = [0, 0];
+				for (let day of state[activity]) {
+					if (thismonth.getMonth() == new Date(day.date).getMonth()) {
+						hours[0] += day.time;
+						continue;
+					}
+					if (pastmonth.getMonth() == new Date(day.date).getMonth())
+						hours[1] += day.time;
+					else break;
+				}
+				return hours;
+			};
+		},
 	},
 	// persist: true,
 });

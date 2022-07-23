@@ -35,5 +35,6 @@ const props = defineProps<{
 const getTimes = {
 	day: store.day,
 	week: store.week,
+	month: store.month,
 };
 </script>
