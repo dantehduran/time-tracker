@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 export type timeframe = 'day' | 'week' | 'month';
-interface Day {
+export interface Day {
 	date: string;
 	time: number;
 }
@@ -18,106 +18,109 @@ export const useTimeframe = defineStore('timeframe', {
 	state: (): TimeframeStore => ({
 		activeTimeframe: 'week',
 		work: [
-			{ date: '2021/07/20', time: 4 },
-			{ date: '2021/07/19', time: 3 },
-			{ date: '2021/07/18', time: 3 },
-			{ date: '2021/07/17', time: 4 },
-			{ date: '2021/07/16', time: 4 },
-			{ date: '2021/07/15', time: 4 },
-			{ date: '2021/07/14', time: 7 },
-			{ date: '2021/07/10', time: 1 },
-			{ date: '2021/07/05', time: 1 },
-			{ date: '2021/07/04', time: 1 },
-			{ date: '2021/07/03', time: 1 },
-			{ date: '2021/07/01', time: 2 },
-			{ date: '2021/06/20', time: 1 },
-			{ date: '2021/06/19', time: 2 },
+			{ date: '2022/07/23', time: 8 },
+			{ date: '2022/07/20', time: 4 },
+			{ date: '2022/07/19', time: 3 },
+			{ date: '2022/07/18', time: 3 },
+			{ date: '2022/07/17', time: 4 },
+			{ date: '2022/07/16', time: 1 },
+			{ date: '2022/07/15', time: 1 },
+			{ date: '2022/07/14', time: 1 },
+			{ date: '2022/07/10', time: 1 },
+			{ date: '2022/07/05', time: 1 },
+			{ date: '2022/07/04', time: 1 },
+			{ date: '2022/07/03', time: 1 },
+			{ date: '2022/07/01', time: 2 },
+			{ date: '2022/06/20', time: 1 },
+			{ date: '2022/06/19', time: 2 },
 		],
 		play: [
-			{ date: '2021/07/20', time: 4 },
-			{ date: '2021/07/19', time: 3 },
-			{ date: '2021/07/18', time: 3 },
-			{ date: '2021/07/17', time: 4 },
-			{ date: '2021/07/05', time: 1 },
-			{ date: '2021/07/04', time: 1 },
-			{ date: '2021/07/03', time: 1 },
-			{ date: '2021/07/01', time: 2 },
-			{ date: '2021/06/20', time: 1 },
-			{ date: '2021/06/19', time: 2 },
+			{ date: '2022/07/23', time: 4 },
+			{ date: '2022/07/22', time: 3 },
+			{ date: '2022/07/18', time: 3 },
+			{ date: '2022/07/17', time: 4 },
+			{ date: '2022/07/05', time: 1 },
+			{ date: '2022/07/04', time: 1 },
+			{ date: '2022/07/03', time: 1 },
+			{ date: '2022/07/01', time: 2 },
+			{ date: '2022/06/20', time: 1 },
+			{ date: '2022/06/19', time: 2 },
 		],
 		study: [
-			{ date: '2021/07/03', time: 1 },
-			{ date: '2021/07/01', time: 2 },
-			{ date: '2021/06/20', time: 1 },
-			{ date: '2021/06/19', time: 2 },
+			{ date: '2022/07/22', time: 1 },
+			{ date: '2022/07/01', time: 2 },
+			{ date: '2022/06/20', time: 1 },
+			{ date: '2022/06/19', time: 2 },
 		],
 		exercise: [
-			{ date: '2021/07/15', time: 4 },
-			{ date: '2021/07/14', time: 7 },
-			{ date: '2021/07/10', time: 1 },
-			{ date: '2021/07/05', time: 1 },
+			{ date: '2022/07/22', time: 4 },
+			{ date: '2022/07/14', time: 7 },
+			{ date: '2022/07/10', time: 1 },
+			{ date: '2022/07/05', time: 1 },
 		],
 		social: [
-			{ date: '2021/07/20', time: 4 },
-			{ date: '2021/07/19', time: 3 },
-			{ date: '2021/07/05', time: 1 },
-			{ date: '2021/07/04', time: 1 },
-			{ date: '2021/07/03', time: 1 },
-			{ date: '2021/07/01', time: 2 },
-			{ date: '2021/06/20', time: 1 },
-			{ date: '2021/06/19', time: 2 },
+			{ date: '2022/07/23', time: 4 },
+			{ date: '2022/07/19', time: 3 },
+			{ date: '2022/07/05', time: 1 },
+			{ date: '2022/07/04', time: 1 },
+			{ date: '2022/07/03', time: 1 },
+			{ date: '2022/07/01', time: 2 },
+			{ date: '2022/06/20', time: 1 },
+			{ date: '2022/06/19', time: 2 },
 		],
 		'self care': [
-			{ date: '2021/07/20', time: 4 },
-			{ date: '2021/07/16', time: 4 },
-			{ date: '2021/07/10', time: 1 },
-			{ date: '2021/07/03', time: 1 },
-			{ date: '2021/06/19', time: 2 },
+			{ date: '2022/07/22', time: 4 },
+			{ date: '2022/07/16', time: 4 },
+			{ date: '2022/07/10', time: 1 },
+			{ date: '2022/07/03', time: 1 },
+			{ date: '2022/06/19', time: 2 },
 		],
 	}),
 	actions: {
 		changeTimeframe(newTimeframe: timeframe) {
 			this.activeTimeframe = newTimeframe;
 		},
+		testAction() {
+			console.log('yo', this.work[0].time);
+			this.work[0].time++;
+		},
 	},
 	getters: {
-		day(state) {
-			let hours = [];
-			const today = new Date();
+		day: (state) => {
+			const today = new Date(new Date().toDateString());
 			const yesterday = new Date(today);
 			yesterday.setDate(yesterday.getDate() - 1);
 			return (activity) => {
+				let times = [0, 0];
 				if (today.getTime() === new Date(state[activity][0].date).getTime())
-					hours.push(state[activity][0].time);
-				else hours.push(0);
+					times[0] = state[activity][0].time;
 				if (yesterday.getTime() === new Date(state[activity][1].date).getTime())
-					hours.push(state[activity][1].time);
-				else hours.push(0);
-				return hours;
+					times[1] = state[activity][1].time;
+				if (yesterday.getTime() === new Date(state[activity][0].date).getTime())
+					times[1] = state[activity][0].time;
+				return times;
 			};
 		},
-		week(state): (string) => [number, number] {
-			const thisweek = new Date();
+		week: (state) => {
+			const thisweek = new Date(new Date().toDateString());
 			const pastweek = new Date(thisweek);
 			thisweek.setDate(thisweek.getDate() - 7);
-			pastweek.setDate(thisweek.getDate() - 14);
+			pastweek.setDate(thisweek.getDate() - 7);
 			return (activity: string) => {
 				let hours: [number, number] = [0, 0];
-				for (let i = 0; i < 14; i++) {
-					if (
-						thisweek.getTime() < new Date(state[activity][i].date).getTime()
-					) {
-						hours[0] += state[activity][i].time;
+				for (let day of state[activity]) {
+					if (thisweek.getTime() < new Date(day.date).getTime()) {
+						hours[0] += day.time;
 						continue;
 					}
-					if (pastweek.getTime() < new Date(state[activity][i].date).getTime())
-						hours[1] += state[activity][i].time;
+					if (pastweek.getTime() < new Date(day.date).getTime())
+						hours[1] += day.time;
 					else break;
 				}
 				return hours;
 			};
 		},
-		month(state) {},
+		month: (state) => {},
 	},
 	// persist: true,
 });

@@ -29,21 +29,30 @@
 				:class="
 					store.activeTimeframe == 'week' ? 'text-white' : 'text-indigo-600'
 				"
-				>Weekly</span
 			>
+				Weekly
+			</span>
 			<span
 				@click="changeTimeframe('month')"
 				class="hover:text-white cursor-pointer text-lg"
 				:class="
 					store.activeTimeframe == 'month' ? 'text-white' : 'text-indigo-600'
 				"
-				>Monthly</span
 			>
+				Monthly
+			</span>
+			<div class="flex">
+				<button @click="store.testAction()">change</button>
+				<span>{{ store.week(activity)[0] }}</span>
+				<span class="text-white">{{ store.week(activity)[1] }}</span>
+			</div>
 		</div>
 	</div>
 </template>
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import { useTimeframe } from '~~/store/timeframeStore';
 const store = useTimeframe();
 const { changeTimeframe } = store;
+const activity = 'work';
 </script>

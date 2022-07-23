@@ -12,11 +12,11 @@
 			</div>
 			<div class="mt-6 mb-2">
 				<h3 class="text-white text-5xl tracking-wide mb-2">
-					<!-- {{ `${getHours('work')[0]}}hrs` }} -->
+					{{ `${getTimes[timeframe](title)[0]}hrs` }}
 				</h3>
-				<!-- <span class="text-white font-thin">{{
-					`last ${timeframe} - ${store[title][timeframe][1]}hrs `
-				}}</span> -->
+				<span class="text-white font-thin">{{
+					`last ${timeframe} - ${getTimes[timeframe](title)[1]}hrs `
+				}}</span>
 			</div>
 		</div>
 	</div>
@@ -32,5 +32,8 @@ const props = defineProps<{
 	icon: string;
 	color: string;
 }>();
-const getHours = store[props.timeframe] as (string: any) => [number, number];
+const getTimes = {
+	day: store.day,
+	week: store.week,
+};
 </script>
