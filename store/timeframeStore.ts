@@ -32,7 +32,7 @@ export const useTimeframe = defineStore('timeframe', {
 			{ date: '2022/07/03', time: 1 },
 			{ date: '2022/07/01', time: 2 },
 			{ date: '2022/06/20', time: 1 },
-			{ date: '2022/06/19', time: 2 },
+			{ date: '2022/05/19', time: 2 },
 		],
 		play: [
 			{ date: '2022/07/23', time: 4 },
@@ -133,7 +133,10 @@ export const useTimeframe = defineStore('timeframe', {
 					}
 					if (pastmonth.getMonth() == new Date(day.date).getMonth())
 						hours[1] += day.time;
-					else break;
+					else {
+						state[activity].length = state[activity].indexOf(day); //remove days if past 2 months
+						break;
+					}
 				}
 				return hours;
 			};

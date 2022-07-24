@@ -12,6 +12,6 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-	buildModules: ['@pinia/nuxt'],
+	modules: ['@pinia/nuxt'],
 	css: ['~/assets/css/tailwind.css'],
 });
