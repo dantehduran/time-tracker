@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { acceptHMRUpdate, defineStore } from 'pinia';
 export type timeframe = 'day' | 'week' | 'month';
 export interface Day {
 	date: string;
@@ -151,4 +151,4 @@ export const useTimeframe = defineStore('timeframe', {
 });
 
 if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
+	import.meta.hot.accept(acceptHMRUpdate(useTimeframe, import.meta.hot));
