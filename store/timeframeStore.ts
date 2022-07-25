@@ -16,7 +16,7 @@ export interface TimeframeStore {
 
 export const useTimeframe = defineStore('timeframe', {
 	state: (): TimeframeStore => ({
-		activeTimeframe: 'week',
+		activeTimeframe: 'day',
 		work: [
 			{ date: '2022/07/23', time: 8 },
 			{ date: '2022/07/20', time: 4 },

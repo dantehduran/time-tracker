@@ -21,6 +21,10 @@ const props = defineProps<{
 const { counter, pause, resume } = useInterval(1000, { controls: true });
 const active = ref(false);
 onMounted(() => pause());
+const emit = defineEmits(['timeChange']);
+watch(counter, (newVal) => {
+	emit('timeChange', newVal);
+});
 const handleTime = () => {
 	pause();
 	active.value = !active.value;
@@ -30,6 +34,7 @@ const handleTime = () => {
 	} else {
 		pause();
 		store.addTime(counter.value, props.activity);
+		counter.value = 0;
 	}
 };
 </script>

@@ -8,17 +8,19 @@
 				v-if="timeframe === 'day'"
 				class="top-4 right-4 absolute"
 				:activity="title"
+				@time-change="(value) => (timer = value)"
 			/>
 			<div class="flex justify-start items-center">
 				<h4 class="capitalize text-white text-2xl">{{ title }}</h4>
 			</div>
 			<div class="mt-6 mb-2">
-				<h3 class="text-white text-5xl tracking-wide mb-2">
+				<h3 v-if="timer > 0" class="text-white text-5xl tracking-wide mb-2">
+					{{ `${timer}mins` }}
+				</h3>
+				<h3 v-if="timer == 0" class="text-white text-5xl tracking-wide mb-2">
 					{{ `${getTimes[timeframe](title)[0]}hrs` }}
 				</h3>
-				<!-- <h3 v-else class="text-white text-5xl tracking-wide mb-2">
-					{{ `${counter}mins` }}
-				</h3> -->
+
 				<span class="text-white font-thin">{{
 					`last ${timeframe} - ${getTimes[timeframe](title)[1]}hrs `
 				}}</span>
@@ -42,4 +44,5 @@ const getTimes = {
 	week: store.week,
 	month: store.month,
 };
+const timer = ref(0);
 </script>
