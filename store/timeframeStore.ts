@@ -80,9 +80,14 @@ export const useTimeframe = defineStore('timeframe', {
 		changeTimeframe(newTimeframe: timeframe) {
 			this.activeTimeframe = newTimeframe;
 		},
-		testAction() {
-			console.log('yo', this.work[0].time);
-			this.work[0].time++;
+		addTime(minutes: number, activity: string) {
+			const today = new Date(new Date().toDateString());
+			if (today.getTime() !== new Date(this[activity][0].date).getTime())
+				this[activity].unshift({
+					date: today.toLocaleDateString('sv').replaceAll('-', '/'),
+					time: 0,
+				});
+			this[activity][0].time += minutes;
 		},
 	},
 	getters: {
@@ -134,7 +139,7 @@ export const useTimeframe = defineStore('timeframe', {
 					if (pastmonth.getMonth() == new Date(day.date).getMonth())
 						hours[1] += day.time;
 					else {
-						state[activity].length = state[activity].indexOf(day); //remove days if past 2 months
+						state[activity].length = state[activity].indexOf(day); //remove days if pass 2 months
 						break;
 					}
 				}

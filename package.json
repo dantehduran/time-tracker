@@ -8,6 +8,8 @@
   },
   "devDependencies": {
     "@iconify/vue": "^3.2.1",
+    "@vueuse/core": "^8.9.4",
+    "@vueuse/nuxt": "^8.9.4",
     "autoprefixer": "^10.4.7",
     "nuxt": "3.0.0-rc.5",
     "postcss": "^8.4.14",

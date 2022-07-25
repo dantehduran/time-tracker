@@ -4,16 +4,21 @@
 			<Icon :icon="icon" width="50" height="50" class="rotate-45" />
 		</div>
 		<div class="p-6 bg-indigo-900 rounded-xl flex flex-col relative">
-			<ControlTime v-if="timeframe === 'day'" class="top-4 right-4 absolute" />
-			<div class="flex justify-between items-center">
+			<ControlTime
+				v-if="timeframe === 'day'"
+				class="top-4 right-4 absolute"
+				:activity="title"
+			/>
+			<div class="flex justify-start items-center">
 				<h4 class="capitalize text-white text-2xl">{{ title }}</h4>
-
-				<!-- <span v-else class="text-white font-bold text-2xl">...</span> -->
 			</div>
 			<div class="mt-6 mb-2">
 				<h3 class="text-white text-5xl tracking-wide mb-2">
 					{{ `${getTimes[timeframe](title)[0]}hrs` }}
 				</h3>
+				<!-- <h3 v-else class="text-white text-5xl tracking-wide mb-2">
+					{{ `${counter}mins` }}
+				</h3> -->
 				<span class="text-white font-thin">{{
 					`last ${timeframe} - ${getTimes[timeframe](title)[1]}hrs `
 				}}</span>
@@ -24,7 +29,7 @@
 
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
-import { useTimeframe } from '../store/timeframeStore';
+import { useTimeframe } from '~~/store/timeframeStore';
 const store = useTimeframe();
 const props = defineProps<{
 	title: string;
