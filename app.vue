@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-slate-900">
+	<div class="bg-slate-800 bg-opacity-95">
 		<div
 			class="flex gap-8 min-h-screen justify-center items-center container mx-auto flex-col md:flex-row"
 		>
