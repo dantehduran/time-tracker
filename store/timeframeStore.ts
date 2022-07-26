@@ -107,7 +107,7 @@ export const useTimeframe = defineStore('timeframe', {
 			};
 		},
 	},
-	// persist: true,
+	persist: true,
 });
 
 if (import.meta.hot)

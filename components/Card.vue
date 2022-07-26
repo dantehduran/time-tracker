@@ -18,7 +18,7 @@
 					{{ `${time}` }}
 				</h3>
 				<span class="text-white font-thin">{{
-					`last ${timeframe} - ${getTimes[timeframe](title)[1]}hrs `
+					`last ${timeframe} - ${pastTime}`
 				}}</span>
 			</div>
 		</div>
@@ -55,4 +55,7 @@ const time = computed(() => {
 		getTimes[props.timeframe](props.title)[0] + timer.value
 	);
 });
+const pastTime = computed(() =>
+	toHoursAndMinutes(getTimes[props.timeframe](props.title)[1])
+);
 </script>
