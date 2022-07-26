@@ -17,64 +17,12 @@ export interface TimeframeStore {
 export const useTimeframe = defineStore('timeframe', {
 	state: (): TimeframeStore => ({
 		activeTimeframe: 'day',
-		work: [
-			{ date: '2022/07/23', time: 8 },
-			{ date: '2022/07/20', time: 4 },
-			{ date: '2022/07/19', time: 3 },
-			{ date: '2022/07/18', time: 3 },
-			{ date: '2022/07/17', time: 4 },
-			{ date: '2022/07/16', time: 1 },
-			{ date: '2022/07/15', time: 1 },
-			{ date: '2022/07/14', time: 1 },
-			{ date: '2022/07/10', time: 1 },
-			{ date: '2022/07/05', time: 1 },
-			{ date: '2022/07/04', time: 1 },
-			{ date: '2022/07/03', time: 1 },
-			{ date: '2022/07/01', time: 2 },
-			{ date: '2022/06/20', time: 1 },
-			{ date: '2022/05/19', time: 2 },
-		],
-		play: [
-			{ date: '2022/07/23', time: 4 },
-			{ date: '2022/07/22', time: 3 },
-			{ date: '2022/07/18', time: 3 },
-			{ date: '2022/07/17', time: 4 },
-			{ date: '2022/07/05', time: 1 },
-			{ date: '2022/07/04', time: 1 },
-			{ date: '2022/07/03', time: 1 },
-			{ date: '2022/07/01', time: 2 },
-			{ date: '2022/06/20', time: 1 },
-			{ date: '2022/06/19', time: 2 },
-		],
-		study: [
-			{ date: '2022/07/22', time: 1 },
-			{ date: '2022/07/01', time: 2 },
-			{ date: '2022/06/20', time: 1 },
-			{ date: '2022/06/19', time: 2 },
-		],
-		exercise: [
-			{ date: '2022/07/22', time: 4 },
-			{ date: '2022/07/14', time: 7 },
-			{ date: '2022/07/10', time: 1 },
-			{ date: '2022/07/05', time: 1 },
-		],
-		social: [
-			{ date: '2022/07/23', time: 4 },
-			{ date: '2022/07/19', time: 3 },
-			{ date: '2022/07/05', time: 1 },
-			{ date: '2022/07/04', time: 1 },
-			{ date: '2022/07/03', time: 1 },
-			{ date: '2022/07/01', time: 2 },
-			{ date: '2022/06/20', time: 1 },
-			{ date: '2022/06/19', time: 2 },
-		],
-		'self care': [
-			{ date: '2022/07/22', time: 4 },
-			{ date: '2022/07/16', time: 4 },
-			{ date: '2022/07/10', time: 1 },
-			{ date: '2022/07/03', time: 1 },
-			{ date: '2022/06/19', time: 2 },
-		],
+		work: [],
+		play: [],
+		study: [],
+		exercise: [],
+		social: [],
+		'self care': [],
 	}),
 	actions: {
 		changeTimeframe(newTimeframe: timeframe) {
@@ -82,7 +30,10 @@ export const useTimeframe = defineStore('timeframe', {
 		},
 		addTime(minutes: number, activity: string) {
 			const today = new Date(new Date().toDateString());
-			if (today.getTime() !== new Date(this[activity][0].date).getTime())
+			if (
+				!this[activity][0] ||
+				today.getTime() !== new Date(this[activity][0].date).getTime()
+			)
 				this[activity].unshift({
 					date: today.toLocaleDateString('sv').replaceAll('-', '/'),
 					time: 0,
@@ -97,11 +48,20 @@ export const useTimeframe = defineStore('timeframe', {
 			yesterday.setDate(yesterday.getDate() - 1);
 			return (activity) => {
 				let times = [0, 0];
-				if (today.getTime() === new Date(state[activity][0].date).getTime())
+				if (
+					state[activity][0] &&
+					today.getTime() === new Date(state[activity][0].date).getTime()
+				)
 					times[0] = state[activity][0].time;
-				if (yesterday.getTime() === new Date(state[activity][1].date).getTime())
+				if (
+					state[activity][1] &&
+					yesterday.getTime() === new Date(state[activity][1].date).getTime()
+				)
 					times[1] = state[activity][1].time;
-				if (yesterday.getTime() === new Date(state[activity][0].date).getTime())
+				if (
+					state[activity][0] &&
+					yesterday.getTime() === new Date(state[activity][0].date).getTime()
+				)
 					times[1] = state[activity][0].time;
 				return times;
 			};

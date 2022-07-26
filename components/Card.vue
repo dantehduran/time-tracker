@@ -14,13 +14,9 @@
 				<h4 class="capitalize text-white text-2xl">{{ title }}</h4>
 			</div>
 			<div class="mt-6 mb-2">
-				<h3 v-if="timer > 0" class="text-white text-5xl tracking-wide mb-2">
-					{{ `${timer}mins` }}
+				<h3 class="text-white text-5xl tracking-wide mb-2">
+					{{ `${time}` }}
 				</h3>
-				<h3 v-if="timer == 0" class="text-white text-5xl tracking-wide mb-2">
-					{{ `${getTimes[timeframe](title)[0]}hrs` }}
-				</h3>
-
 				<span class="text-white font-thin">{{
 					`last ${timeframe} - ${getTimes[timeframe](title)[1]}hrs `
 				}}</span>
@@ -45,4 +41,18 @@ const getTimes = {
 	month: store.month,
 };
 const timer = ref(0);
+const padTo2Digits = (num: number) => {
+	return num.toString().padStart(2, '0');
+};
+const toHoursAndMinutes = (totalMinutes: number) => {
+	const minutes = totalMinutes % 60;
+	const hours = Math.floor(totalMinutes / 60);
+
+	return `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`;
+};
+const time = computed(() => {
+	return toHoursAndMinutes(
+		getTimes[props.timeframe](props.title)[0] + timer.value
+	);
+});
 </script>
