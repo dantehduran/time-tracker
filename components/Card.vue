@@ -3,7 +3,7 @@
 		<div class="h-12 text-gray-600 opacity-50 flex justify-end pr-4">
 			<Icon :icon="icon" width="50" height="50" class="rotate-45" />
 		</div>
-		<div class="p-6 bg-indigo-900 rounded-xl flex flex-col relative">
+		<div class="p-6 bg-gray-900 rounded-xl flex flex-col relative">
 			<ControlTime
 				v-if="timeframe === 'day'"
 				class="top-4 right-4 absolute"
