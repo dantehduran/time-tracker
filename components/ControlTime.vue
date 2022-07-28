@@ -18,7 +18,7 @@ const store = useTimeframe();
 const props = defineProps<{
 	activity: string;
 }>();
-const { counter, pause, resume } = useInterval(1000, { controls: true });
+const { counter, pause, resume } = useInterval(60000, { controls: true });
 const active = ref(false);
 onMounted(() => pause());
 const emit = defineEmits(['timeChange']);
